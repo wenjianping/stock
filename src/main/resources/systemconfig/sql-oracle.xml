@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config name="sys">
+
+	<cn>
+		<wen>
+			<entity>
+				<stock>
+					<query>
+						select * from t_stock where code = ?
+					</query>
+					<update>
+						update t_stock
+						set
+
+						where code = :code
+					</update>
+
+					<save>
+						insert into t_stock
+						set
+					</save>
+					<delete>
+						delete from t_stock where code = ?
+					</delete>
+				</stock>
+			</entity>
+		</wen>
+	</cn>
+
+
+	<cn>
+		<wen>
+			<entity>
+				<stockextends>
+                    <query>
+                        select * from t_stock_extends where code = ? and day = ?
+                    </query>
+                    <update>
+                        update  t_stock_extends
+                        set 
+                            name = :name,
+                            price = :price,
+                            netWorth = :netWorth
+                        where code = :code,
+                          and day = :day
+                    </update>
+
+                    <save>
+                        insert into t_stock_extends
+                        set code = :code,
+                            name = :name,
+                            day = :day,
+                            price = :price,
+                            netWorth = :netWorth
+                    </save>
+				</stockextends>
+			</entity>
+		</wen>
+	</cn>
+</config>
